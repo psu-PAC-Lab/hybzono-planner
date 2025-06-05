@@ -1,0 +1,2 @@
+source run_sim_study.bash
+source run_sim_study_diag_reach.bash
