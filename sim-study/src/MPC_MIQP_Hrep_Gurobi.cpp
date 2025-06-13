@@ -304,24 +304,24 @@ bool MPC_MIQP_Hrep_Gurobi::solve_optimization_problem()
     {
         case GRB_OPTIMAL:
         {
-            miqp_results.status = MI_QPIPMPC::MI_Status::MI_SOLVED;
+            miqp_results.status = MI_QPIPMPC::MIQP_Status::MIQP_SOLVED;
             break;
         }
         case GRB_INFEASIBLE: case GRB_INF_OR_UNBD: case GRB_UNBOUNDED:
         {
-            miqp_results.status = MI_QPIPMPC::MI_Status::MI_INFEASIBLE;
+            miqp_results.status = MI_QPIPMPC::MIQP_Status::MIQP_INFEASIBLE;
             break;
         }
         case GRB_LOADED:
         {
-            miqp_results.status = MI_QPIPMPC::MI_Status::MI_UNSOLVED;
+            miqp_results.status = MI_QPIPMPC::MIQP_Status::MIQP_NO_SOL;
             throw std::runtime_error("Gurobi optimization not solved");
             break;
         }
         case GRB_CUTOFF: case GRB_ITERATION_LIMIT: case GRB_TIME_LIMIT: case GRB_NODE_LIMIT: case GRB_SOLUTION_LIMIT:
             case GRB_NUMERIC: case GRB_SUBOPTIMAL: case GRB_USER_OBJ_LIMIT: case GRB_WORK_LIMIT: case GRB_MEM_LIMIT:
         {
-            miqp_results.status = MI_QPIPMPC::MI_Status::MI_MAX_ITER_FEASIBLE;
+            miqp_results.status = MI_QPIPMPC::MIQP_Status::MIQP_MAX_ITER_FEASIBLE;
             break;
         }
         case GRB_INTERRUPTED: case GRB_INPROGRESS:
@@ -338,7 +338,7 @@ bool MPC_MIQP_Hrep_Gurobi::solve_optimization_problem()
     }
 
     // check if feasible
-    bool feasible = miqp_results.status != MI_QPIPMPC::MI_Status::MI_INFEASIBLE;
+    bool feasible = miqp_results.status != MI_QPIPMPC::MIQP_Status::MIQP_INFEASIBLE;
 
     // get solution vector
     solution.resize(n_y_tot);

@@ -344,7 +344,11 @@ int main()
                             mpc_ours_hz->set_MI_settings(mi_settings_ours);
 
                             // build controller
+                            auto start = std::chrono::high_resolution_clock::now();
                             mpc_ours_hz->build_controller();
+                            auto end = std::chrono::high_resolution_clock::now();
+                            double setup_time_ms = static_cast<double>(std::chrono::duration_cast<std::chrono::microseconds>(end-start).count()) / 1e3;
+                            std::cout << "Setup time for map " << map_name_map[map] << " = " << setup_time_ms << " ms" << std::endl;
 
                             break;
                         }
