@@ -11,4 +11,4 @@ Robbins, Joshua A., et al. "Integration of a Graph-Based Path Planner and Mixed-
 
 Thompson, Andrew F., et al. "Mixed-Integer Moving Horizon Estimation for Terrain-Aided Navigation Using Hybrid Zonotopes." 2025 IEEE/ION Position, Location and Navigation Symposium (PLANS). 2025.
 
-Robbins, Joshua A., et al. "Energy-Aware Predictive Motion Planning for Autonomous Vehicles Using a Hybrid Zonotope Constraint Representation." arXiv preprint arXiv:2411.03189 (2024).
+Robbins, Joshua A., et al. "Energy-Aware Predictive Motion Planning for Autonomous Vehicles Using a Hybrid Zonotope Constraint Representation." IEEE American Control Conference (2025).
